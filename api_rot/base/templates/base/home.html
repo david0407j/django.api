@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{% static 'img/davidson.ico' %}"/>
+    <title>Bem-vindo à API</title>
+</head>
+<body>
+    <header class="bg-danger text-white text-center py-4">
+        <h1>Bem-vindo à API</h1>
+        <p>Explore os dados e recursos disponíveis.</p>
+    </header>
+    <main class="container my-4">
+        <section class="mb-4">
+            <h2>Sobre a API</h2>
+            <p>Esta API fornece recursos e informações sobre [descrição breve do propósito da API].</p>
+        </section>
+        <section class="mb-4">
+            <h2>Endpoints Disponíveis</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>GET</strong> <code>/api/v1/resource</code>: Retorna a lista de recursos.</li>
+                <li class="list-group-item"><strong>POST</strong> <code>/api/v1/resource</code>: Cria um novo recurso.</li>
+                <li class="list-group-item"><strong>GET</strong> <code>/api/v1/resource/{id}</code>: Retorna os detalhes de um recurso específico.</li>
+                <li class="list-group-item"><strong>PUT</strong> <code>/api/v1/resource/{id}</code>: Atualiza um recurso específico.</li>
+                <li class="list-group-item"><strong>DELETE</strong> <code>/api/v1/resource/{id}</code>: Exclui um recurso específico.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Documentação</h2>
+            <p>Consulte a documentação completa em: <a href="https://seu-link-para-a-documentacao.com" target="_blank">Documentação da API</a></p>
+        </section>
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Sua Empresa. Todos os direitos reservados.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
