@@ -3,10 +3,10 @@ name: CI
 on:
   push:
     branches:
-      - cores
+      - django.api
   pull_request:
     branches:
-      - cores
+      - django.api
 
 jobs:
   build:
@@ -21,28 +21,29 @@ jobs:
           POSTGRES_USER: django.api
           POSTGRES_PASSWORD: django.api
           POSTGRES_DB: postgres
-        ports: [ '5432:5432' ]
+        ports: ['5432:5432']
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout código
+        uses: actions/checkout@v3
 
-      - name: Setup Python
-        uses: actions/setup-python@v1
+      - name: Configurar Python
+        uses: actions/setup-python@v3
         with:
           python-version: 3.11
           architecture: x64
 
-      - name: Criar .env manualmente
+      - name: Criar arquivo .env
         run: |
           echo "POSTGRES_USER=django.api" >> .env
           echo "POSTGRES_PASSWORD=django.api" >> .env
           echo "POSTGRES_DB=postgres" >> .env
 
-      - name: Instalar dependências
+      - name: Instalar dependências com Poetry
         run: |
           pip install poetry
           poetry install
 
-      - name: Rodar flake8
-        run: | 
+      - name: Rodar flake8 (análise de código)
+        run: |
           poetry run flake8
