@@ -23,9 +23,9 @@ def get_users(request):
 
 
 @api_view(["GET", "PUT"])
-def get_by_nick(request, nick):
+def get_by_davidson(request, davidson):
     try:
-        user = User.objects.get(pk=nick)
+        user = User.objects.get(pk=davidson)
     except User.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -84,7 +84,7 @@ def user_manager(request):
 
     # EDITAR DADOS (PUT)
     if request.method == "PUT":
-        nickname = request.data["user_nickname"]
+        nickname = request.data["user_davidson"]
 
         try:
             updated_user = User.objects.get(pk=nickname)
@@ -102,7 +102,7 @@ def user_manager(request):
     # DELETAR DADOS (DELETE)
     if request.method == "DELETE":
         try:
-            user_to_delete = User.objects.get(pk=request.data["user_nickname"])
+            user_to_delete = User.objects.get(pk=request.data["user_davidson"])
             user_to_delete.delete()
             return Response(status=status.HTTP_202_ACCEPTED)
         except User.DoesNotExist:
