@@ -34,7 +34,7 @@ DEBUG = config("DEBUG", cast=bool)
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
-ALLOWED_HOSTS = []
+AUTH_USER_MODEL = "base.User"
 
 
 # Application definition
@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "corsheaders",
-    "api_rest",
+    "api_rot.api_rest",
+    "api_rot.base",
 ]
 
 MIDDLEWARE = [
